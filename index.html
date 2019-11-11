@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Random Password Generator</h1>
+    <h4>How many characters? (minimum 6)</h4>
+    <input type="range" id="sliderlength" min="6" />
+    <h4>
+      What kind of characters would you like your password to contain?
+    </h4>
+    Numbers: <input type="checkbox" id="numbox" /> <br />
+    Symbols: <input type="checkbox" id="symbox" /> <br />
+    Lowercase characters: <input type="checkbox" id="lowerbox" /> <br />
+    Uppercase characters: <input type="checkbox" id="lowerbox" /> <br />
+    <br />
+    <button id="submit">Submit</button>
+    <br />
+    <br />
+    <input type="text" id="displaypwd" />
+    <script src="script.js"></script>
+  </body>
+</html>
