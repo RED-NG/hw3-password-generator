@@ -9,20 +9,22 @@
   <body>
     <h1>Random Password Generator</h1>
     <h4>How many characters? (minimum 8, maximum 128)</h4>
-    <input type="number" id="sliderlength" min="8" max="128" value="50" />
+    <input type="number" id="pwdLength" min="8" max="128" value="8" />
     <h4>
       What kind of characters would you like your password to contain?
     </h4>
     <div id="boxchecked">
-      Numbers: <input type="checkbox" id="numbox" /> <br />
-      Symbols: <input type="checkbox" id="symbox" /> <br />
-      Uppercase characters: <input type="checkbox" id="upperbox" />
+      Numbers: <input type="checkbox" id="numBoxCheck" /> <br />
+      Symbols: <input type="checkbox" id="symBoxCheck" /> <br />
+      Uppercase characters:
+      <input type="checkbox" id="uppercaseCheck" /> Lowercase characters:
+      <input type="checkbox" id="lowercaseCheck" />
     </div>
     <br />
     <button id="submit">Submit</button>
     <br />
     <br />
-    <input type="text" id="displaypwd" size="75" />
+    <p type="text" id="displaypwd" size="75"></p>
     <script src="script.js"></script>
   </body>
 </html>

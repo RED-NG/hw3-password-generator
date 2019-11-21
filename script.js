@@ -1,20 +1,76 @@
+// defining variables, data sets needed.
+
 var symbols = "!@#$%^&*()_+-";
 var numbers = "1234567890";
-var characters = "abcdefghijklmnopqrstuvwxyz";
+var alphabetlower = "abcdefghijklmnopqrstuvwxyz";
 var alphabetupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var length = document.getElementById("length");
 
-var numbox = document.getElementById("numbox");
-var symbox = document.getElementById("symbox");
-var upperbox = document.getElementById("upperbox");
-var submit = document.getElementById("submit");
-var pwdbox = document.getElementById("displaypwd");
+// defining references to the DOM.
+var pwdLength = document.getElementById("pwdLength");
+var symBox = document.getElementById("symBoxCheck");
+var lowerBox = document.getElementById("lowercaseCheck");
+var upperBox = document.getElementById("uppercaseCheck");
+var submitBtn = document.getElementById("submit");
+var passwordDisplay = document.getElementById("displaypwd");
+var numBox = document.getElementById("numBoxCheck");
 
-console.log(generatepwd(50, characters));
+//checking if variables work
+// console.log(
+//   symBox.checked,
+//   lowerBox.checked,
+//   upperBox.checked,
+//   numBox.checked,
+//   submit,
+//   displaypwd
+// );
 
-function generatepwd(length, characters) {
-  var pwdgen = "";
-  for (var i = 0; i < length; i++) {
-    pwdgen += characters.charAt(Math.floor(Math.random() * characters.length));
+submitBtn.addEventListener("click", function(e) {
+  console.log(e);
+  let options = [];
+  let length = pwdLength.value;
+
+  if (
+    !numBox.checked &&
+    !symBox.checked &&
+    !lowerBox.checked &&
+    !upperBox.checked
+  ) {
+    alert("PLEASE SELECT AN OPTION");
+  } else {
+    if (numBox.checked) {
+      //if numbox is checked do...
+      options.push(numbers);
+    }
+    if (symBox.checked) {
+      //if symbox is checked do..
+      options.push(symbols);
+    }
+    if (lowerBox.checked) {
+      // if lowerBox is checked do
+      options.push(alphabetlower);
+    }
+    if (upperBox.checked) {
+      // if upperbox is checked do
+      options.push(alphabetupper);
+    }
+    // console.log(passwordDisplay);
+    passwordDisplay.innerText = generatepwd(length, options);
   }
-  return pwdgen;
+});
+
+function generatepwd(length, options) {
+  // console.log(length, options);
+  let modifiers = options.join("");
+  let password = "";
+  for (let i = 1; i <= length; i++) {
+    password += modifiers[randIndex(modifiers)];
+  }
+  return password;
 }
+
+function randIndex(modifiers) {
+  return Math.floor(Math.random() * modifiers.length);
+}
+
+// console.log("RAND INDEX", randIndex("abc"));
